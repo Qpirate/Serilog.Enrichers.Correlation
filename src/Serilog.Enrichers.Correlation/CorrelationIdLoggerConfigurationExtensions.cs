@@ -13,6 +13,13 @@ namespace Serilog
 				: enrichmentConfiguration.With<CorrelationIdEnricher>();
 		}
 
+		public static LoggerConfiguration WithCorrelationId(this LoggerEnrichmentConfiguration enrichmentConfiguration, string headerKey)
+		{
+			return enrichmentConfiguration == null
+				? throw new ArgumentNullException(nameof(enrichmentConfiguration))
+				: enrichmentConfiguration.With(new CorrelationIdEnricher(headerKey));
+		}
+
 		public static LoggerConfiguration WithCorrelationIdHeader(
 			this LoggerEnrichmentConfiguration enrichmentConfiguration,
 			string headerKey = "x-correlation-id")

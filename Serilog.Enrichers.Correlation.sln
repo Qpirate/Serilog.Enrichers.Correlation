@@ -1,10 +1,13 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.0.11222.15 d18.0
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36717.8 d17.14
 MinimumVisualStudioVersion = 14.0.0.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Enrichers.Correlation", "Serilog.Enrichers.Correlation\Serilog.Enrichers.Correlation.csproj", "{D80BD3ED-A776-40F9-A198-BAB325B73659}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Enrichers.Correlation", "src\Serilog.Enrichers.Correlation\Serilog.Enrichers.Correlation.csproj", "{D80BD3ED-A776-40F9-A198-BAB325B73659}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Enrichers.Correlation.Tests", "Serilog.Enrichers.Correlation.Tests\Serilog.Enrichers.Correlation.Tests.csproj", "{1979E570-3BB8-4DF4-B056-664A924442F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Enrichers.Correlation.Tests", "src\Serilog.Enrichers.Correlation.Tests\Serilog.Enrichers.Correlation.Tests.csproj", "{1979E570-3BB8-4DF4-B056-664A924442F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleLoggerCofiguration", "samples\SampleLoggerCofiguration\SampleLoggerCofiguration.csproj", "{5C954CE9-A32C-4751-91C7-4F5F155D6A0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +23,10 @@ Global
 		{1979E570-3BB8-4DF4-B056-664A924442F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1979E570-3BB8-4DF4-B056-664A924442F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1979E570-3BB8-4DF4-B056-664A924442F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C954CE9-A32C-4751-91C7-4F5F155D6A0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C954CE9-A32C-4751-91C7-4F5F155D6A0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C954CE9-A32C-4751-91C7-4F5F155D6A0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C954CE9-A32C-4751-91C7-4F5F155D6A0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
