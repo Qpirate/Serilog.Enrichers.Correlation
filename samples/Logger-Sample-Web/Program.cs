@@ -13,11 +13,11 @@ internal class Program
 		.CreateBootstrapLogger();
 
 		WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-		builder.Services.AddHttpContextAccessor();
+
 		builder.Services.AddSerilog((services, lc) => lc
-			.ReadFrom.Configuration(builder.Configuration).ReadFrom.Services(services)
-			.Enrich.FromLogContext()
-		);
+		 .ReadFrom.Configuration(builder.Configuration)
+	   );
+
 
 		WebApplication app = builder.Build();
 

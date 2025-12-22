@@ -2,7 +2,7 @@
 using Serilog.Core;
 using Serilog.Events;
 using System;
-using System.Linq;
+using System.Collections.Concurrent;
 using System.Threading;
 
 namespace Serilog.Enrichers
@@ -10,6 +10,7 @@ namespace Serilog.Enrichers
 	public class CorrelationIdEnricher : ILogEventEnricher
 	{
 
+		private readonly ConcurrentDictionary<string, string> _correlationIds = new ConcurrentDictionary<string, string>(StringComparer.OrdinalIgnoreCase);
 		private readonly SemaphoreSlim _semaphore = new(1, 1);
 		private string _correlationId = null;
 		private readonly string _headerKey;
@@ -32,7 +33,7 @@ namespace Serilog.Enrichers
 			try
 			{
 
-				string correlationId = GetCorrelationId();
+				string correlationId = GetCorrelationId(logEvent);
 
 				LogEventProperty correlationIdProperty = new(CorrelationIdPropertyName, new ScalarValue(correlationId));
 
@@ -49,19 +50,21 @@ namespace Serilog.Enrichers
 			}
 		}
 
-		private string GetCorrelationId()
+		private string GetCorrelationId(LogEvent logEvent)
 		{
-
-			if (_contextAccessor?.HttpContext is not null && _contextAccessor.HttpContext.Request.Headers.TryGetValue(_headerKey, out Microsoft.Extensions.Primitives.StringValues strings))
+			string key = $"{logEvent.SpanId}-{logEvent.TraceId}";
+			if (key != "-")
 			{
-				_correlationId ??= strings.FirstOrDefault();
+				_correlationId = key;
 			}
-
 
 			if (string.IsNullOrWhiteSpace(_correlationId))
 			{
 				_correlationId = Guid.NewGuid().ToString();
 			}
+
+			_correlationIds.TryAdd(key, _correlationId);
+
 			return _correlationId;
 		}
 	}

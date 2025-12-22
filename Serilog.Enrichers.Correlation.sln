@@ -1,13 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36717.8 d17.14
+VisualStudioVersion = 17.14.36717.8
 MinimumVisualStudioVersion = 14.0.0.0
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Enrichers.Correlation", "src\Serilog.Enrichers.Correlation\Serilog.Enrichers.Correlation.csproj", "{D80BD3ED-A776-40F9-A198-BAB325B73659}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Serilog.Enrichers.Correlation.Tests", "src\Serilog.Enrichers.Correlation.Tests\Serilog.Enrichers.Correlation.Tests.csproj", "{1979E570-3BB8-4DF4-B056-664A924442F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleLoggerCofiguration", "samples\SampleLoggerCofiguration\SampleLoggerCofiguration.csproj", "{5C954CE9-A32C-4751-91C7-4F5F155D6A0F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger-Sample-Web", "samples\Logger-Sample-Web\Logger-Sample-Web.csproj", "{5C954CE9-A32C-4751-91C7-4F5F155D6A0F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{33579F1B-6E36-4CCF-98A2-E9143F348E9E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{48D26275-98F6-45D2-A473-228E2FEE271F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,6 +36,11 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D80BD3ED-A776-40F9-A198-BAB325B73659} = {33579F1B-6E36-4CCF-98A2-E9143F348E9E}
+		{1979E570-3BB8-4DF4-B056-664A924442F8} = {48D26275-98F6-45D2-A473-228E2FEE271F}
+		{5C954CE9-A32C-4751-91C7-4F5F155D6A0F} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A89FC39D-453C-4703-A1B0-05380A083832}

@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Serilog.Core;
 using Serilog.Events;
-using System;
 using System.Linq;
 
 namespace Serilog.Enrichers
@@ -27,16 +26,17 @@ namespace Serilog.Enrichers
 			if (_contextAccessor.HttpContext == null)
 				return;
 
-			string correlationId = GetCorrelationId();
+			string correlationId = GetCorrelationId(logEvent);
 
 			LogEventProperty correlationIdProperty = new LogEventProperty(CorrelationIdPropertyName, new ScalarValue(correlationId));
 
 			logEvent.AddOrUpdateProperty(correlationIdProperty);
 		}
 
-		private string GetCorrelationId()
+		private string GetCorrelationId(LogEvent logEvent)
 		{
 			string header = string.Empty;
+
 
 			if (_contextAccessor.HttpContext.Request.Headers.TryGetValue(_headerKey, out Microsoft.Extensions.Primitives.StringValues values))
 			{
@@ -47,9 +47,12 @@ namespace Serilog.Enrichers
 				header = values.FirstOrDefault();
 			}
 
+			string key = $"{logEvent.SpanId}-{logEvent.TraceId}";
+
 			string correlationId = string.IsNullOrEmpty(header)
-									? Guid.NewGuid().ToString()
+									? key
 									: header;
+
 			if (!_contextAccessor.HttpContext.Response.Headers.ContainsKey(_headerKey) && !_contextAccessor.HttpContext.Request.Headers.IsReadOnly)
 			{
 				_contextAccessor.HttpContext.Response.Headers.Add(_headerKey, correlationId);
