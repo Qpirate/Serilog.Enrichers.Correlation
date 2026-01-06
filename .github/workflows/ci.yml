@@ -19,4 +19,5 @@ jobs:
       run: dotnet build --configuration Release
     - name: Test
       working-directory: ./src/Serilog.Enrichers.Correlation.Tests
-      run: dotnet test --configuration Release --no-build
+      run: dotnet test
+#      run: dotnet test --logger trx --results-directory ../../test-results/ --collect "Code coverage"
