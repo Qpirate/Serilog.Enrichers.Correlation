@@ -8,6 +8,7 @@
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Qpirate/Serilog.Enrichers.Correlation</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
 	</PropertyGroup>
 
 	<ItemGroup>
