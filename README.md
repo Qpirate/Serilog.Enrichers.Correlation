@@ -1,4 +1,4 @@
-# Serilog.Enrichers.Correlation
+# Qpirate.Serilog.Enrichers.Correlation
 
 An upgraded version of [serilog-enrichers-correlation-id](https://github.com/ekmsystems/serilog-enrichers-correlation-id) with modernized features, enhanced functionality, and support for the latest .NET versions.
 
@@ -36,13 +36,13 @@ This upgraded version includes several improvements over the original package:
 Install the package via NuGet:
 
 ```bash
-dotnet add package Serilog.Enrichers.Correlation
+dotnet add package Qpirate.Serilog.Enrichers.Correlation
 ```
 
 Or using Package Manager:
 
 ```powershell
-Install-Package Serilog.Enrichers.Correlation
+Install-Package Qpirate.Serilog.Enrichers.Correlation
 ```
 
 ## Usage
