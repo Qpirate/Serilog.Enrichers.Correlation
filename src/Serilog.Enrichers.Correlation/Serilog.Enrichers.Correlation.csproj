@@ -7,6 +7,7 @@
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Qpirate/Serilog.Enrichers.Correlation</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -14,7 +15,7 @@
 		<PackageReference Include="Serilog" Version="4.3.0" />
 	</ItemGroup>
 	<ItemGroup>
-    <None Include="..\..\readme.md" Pack="true" PackagePath="\"/>
+    <None Include="..\..\readme.md" Pack="true" PackagePath="\" />
 		<InternalsVisibleTo Include="Serilog.Enrichers.Correlation.Tests" />
 	</ItemGroup>
 
