@@ -7,8 +7,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 15
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -23,7 +21,9 @@ jobs:
       run: dotnet test --configuration Release /p:Version="${VERSION}" /p:InformationalVersion="${VERSION}"
     - name: Package
       working-directory: ./src/Serilog.Enrichers.Correlation
-      run: dotnet pack --configuration release --output ../../.nuget/ /p:Version=="${VERSION}"
+      run: dotnet pack --configuration release --output ../../.nuget/ /p:Version="${VERSION}"
     - name: Push
       working-directory: ./.nuget/
       run: dotnet nuget push Serilog.Enrichers.Correlation.${VERSION}.nupkg --source https://nuget.pkg.github.com/qpirate/index.json --api-key ${GITHUB_TOKEN}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
