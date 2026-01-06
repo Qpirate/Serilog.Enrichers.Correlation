@@ -9,7 +9,11 @@
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/Qpirate/Serilog.Enrichers.Correlation</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageId>QP.Serilog.Enrichers.Correlation</PackageId>
+		<PackageId>QPirate.Serilog.Enrichers.Correlation</PackageId>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Title>Serilog.Enrichers.Correlation</Title>
+    <PackageProjectUrl>https://github.com/Qpirate/Serilog.Enrichers.Correlation</PackageProjectUrl>
+    <PackageTags>Serilog</PackageTags>
 	</PropertyGroup>
 
 	<ItemGroup>
