@@ -6,9 +6,10 @@
 		<TargetFrameworks>net8.0;net9.0;net10.0;</TargetFrameworks>
 		<IncludeSymbols>True</IncludeSymbols>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageReadmeFile>readme.md</PackageReadmeFile>
-    <RepositoryUrl>https://github.com/Qpirate/Serilog.Enrichers.Correlation</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/Qpirate/Serilog.Enrichers.Correlation</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageId>QP.Serilog.Enrichers.Correlation</PackageId>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,7 +17,7 @@
 		<PackageReference Include="Serilog" Version="4.3.0" />
 	</ItemGroup>
 	<ItemGroup>
-    <None Include="..\..\readme.md" Pack="true" PackagePath="\" />
+		<None Include="..\..\readme.md" Pack="true" PackagePath="\" />
 		<InternalsVisibleTo Include="Serilog.Enrichers.Correlation.Tests" />
 	</ItemGroup>
 

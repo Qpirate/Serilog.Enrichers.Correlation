@@ -27,11 +27,11 @@ jobs:
       run: dotnet pack --configuration release --output ../../.nuget/ /p:Version="${VERSION}"
     - name: Push GITHUB
       working-directory: ./.nuget/
-      run: dotnet nuget push Serilog.Enrichers.Correlation.${VERSION}.nupkg --source https://nuget.pkg.github.com/Qpirate/index.json --api-key ${GITHUB_TOKEN}
+      run: dotnet nuget push QP.Serilog.Enrichers.Correlation.${VERSION}.nupkg --source https://nuget.pkg.github.com/Qpirate/index.json --api-key ${GITHUB_TOKEN} --skip-duplicate
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Push NUGET
       working-directory: ./.nuget/
-      run: dotnet nuget push Serilog.Enrichers.Correlation.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${SERILOG_NUGET_KEY}
+      run: dotnet nuget push QP.Serilog.Enrichers.Correlation.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${SERILOG_NUGET_KEY} --skip-duplicate
       env:
         SERILOG_NUGET_KEY: ${{ secrets.SERILOG_NUGET_KEY }}
