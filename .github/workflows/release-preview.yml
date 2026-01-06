@@ -22,6 +22,6 @@ jobs:
       run: dotnet pack --configuration release --output ../../.nuget/ /p:Version="${VERSION}"
     - name: Push GITHUB
       working-directory: ./.nuget/
-      run: dotnet nuget push QP.Serilog.Enrichers.Correlation.${VERSION}.nupkg --source https://nuget.pkg.github.com/Qpirate/index.json --api-key ${GITHUB_TOKEN}
+      run: dotnet nuget push QPirate.Serilog.Enrichers.Correlation.${VERSION}.nupkg --source https://nuget.pkg.github.com/Qpirate/index.json --api-key ${GITHUB_TOKEN}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
