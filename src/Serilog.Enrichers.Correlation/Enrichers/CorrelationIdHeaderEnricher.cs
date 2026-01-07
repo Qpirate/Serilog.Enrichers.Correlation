@@ -53,7 +53,7 @@ namespace Serilog.Enrichers
 									? key
 									: header;
 
-			if (!_contextAccessor.HttpContext.Response.Headers.ContainsKey(_headerKey) && !_contextAccessor.HttpContext.Request.Headers.IsReadOnly)
+			if (!_contextAccessor.HttpContext.Response.Headers.ContainsKey(_headerKey) && !_contextAccessor.HttpContext.Response.Headers.IsReadOnly)
 			{
 				_contextAccessor.HttpContext.Response.Headers.Add(_headerKey, correlationId);
 			}
