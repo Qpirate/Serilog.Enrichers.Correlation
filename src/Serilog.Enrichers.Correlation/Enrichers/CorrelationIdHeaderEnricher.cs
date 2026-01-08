@@ -7,7 +7,7 @@ namespace Serilog.Enrichers
 {
 	public class CorrelationIdHeaderEnricher : ILogEventEnricher
 	{
-		private const string CorrelationIdPropertyName = "CorrelationId";
+
 		private readonly string _headerKey;
 		private readonly IHttpContextAccessor _contextAccessor;
 
@@ -28,7 +28,9 @@ namespace Serilog.Enrichers
 
 			string correlationId = GetCorrelationId(logEvent);
 
-			logEvent.AddOrUpdateProperty(new LogEventProperty(CorrelationIdPropertyName, new ScalarValue(correlationId)));
+			logEvent.AddOrUpdateProperty(new("SpanId", new ScalarValue(logEvent.SpanId)));
+			logEvent.AddOrUpdateProperty(new("TraceId", new ScalarValue(logEvent.TraceId)));
+			logEvent.AddOrUpdateProperty(new("CorrelationId", new ScalarValue(correlationId)));
 		}
 
 		private string GetCorrelationId(LogEvent logEvent)

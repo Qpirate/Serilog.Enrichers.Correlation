@@ -16,7 +16,7 @@ internal class Program
 
 		builder.Services.AddSerilog((services, lc) => lc
 		 .ReadFrom.Configuration(builder.Configuration)
-	   );
+	   ).AddHttpContextAccessor();
 
 
 		WebApplication app = builder.Build();
