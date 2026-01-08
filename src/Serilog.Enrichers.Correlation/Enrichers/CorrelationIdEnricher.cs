@@ -52,7 +52,7 @@ namespace Serilog.Enrichers
 
 		private string GetCorrelationId(LogEvent logEvent)
 		{
-			string key = $"{logEvent.SpanId}-{logEvent.TraceId}";
+			string key = $"{logEvent.TraceId}-{logEvent.SpanId}";
 			if (key != "-")
 			{
 				_correlationId = key;
