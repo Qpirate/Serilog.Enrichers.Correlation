@@ -28,15 +28,12 @@ namespace Serilog.Enrichers
 
 			string correlationId = GetCorrelationId(logEvent);
 
-			LogEventProperty correlationIdProperty = new LogEventProperty(CorrelationIdPropertyName, new ScalarValue(correlationId));
-
-			logEvent.AddOrUpdateProperty(correlationIdProperty);
+			logEvent.AddOrUpdateProperty(new LogEventProperty(CorrelationIdPropertyName, new ScalarValue(correlationId)));
 		}
 
 		private string GetCorrelationId(LogEvent logEvent)
 		{
 			string header = string.Empty;
-
 
 			if (_contextAccessor.HttpContext.Request.Headers.TryGetValue(_headerKey, out Microsoft.Extensions.Primitives.StringValues values))
 			{
@@ -47,7 +44,7 @@ namespace Serilog.Enrichers
 				header = values.FirstOrDefault();
 			}
 
-			string key = $"{logEvent.SpanId}-{logEvent.TraceId}";
+			string key = $"{logEvent.TraceId}-{logEvent.SpanId}";
 
 			string correlationId = string.IsNullOrEmpty(header)
 									? key
